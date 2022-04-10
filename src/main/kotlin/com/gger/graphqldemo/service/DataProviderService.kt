@@ -15,26 +15,35 @@ class DataProviderService(
     private val restTemplate: RestTemplate
 ) {
     companion object {
-        private const val GET_POSTS_URL = "https://jsonplaceholder.typicode.com/posts"
-        private const val GET_COMMENTS_URL = "https://jsonplaceholder.typicode.com/comments"
-        private const val GET_USERS_URL = "https://jsonplaceholder.typicode.com/users"
+        const val GET_POSTS_URL = "https://jsonplaceholder.typicode.com/posts"
+        const val GET_COMMENTS_URL = "https://jsonplaceholder.typicode.com/comments"
+        const val GET_USERS_URL = "https://jsonplaceholder.typicode.com/users"
     }
 
     @Cacheable("findAllPosts", cacheManager = "caffeineCacheManager")
     fun findAllPosts(): List<Post> {
-        val posts = restTemplate.getForEntity(GET_POSTS_URL, Array<Post>::class.java).body?.toList()
+
+        val posts = restTemplate.getForEntity(GET_POSTS_URL, Array<Post>::class.java)
+            .body?.toList()
+
         return posts ?: listOf()
     }
 
     @Cacheable("findAllComments", cacheManager = "caffeineCacheManager")
     fun findAllComments(): List<Comment> {
-        val comments = restTemplate.getForEntity(GET_COMMENTS_URL, Array<Comment>::class.java).body?.toList()
+
+        val comments = restTemplate.getForEntity(GET_COMMENTS_URL, Array<Comment>::class.java)
+            .body?.toList()
+
         return comments ?: listOf()
     }
 
     @Cacheable("findAllUsers", cacheManager = "caffeineCacheManager")
     fun findAllUsers(): List<User> {
-        val users = restTemplate.getForEntity(GET_USERS_URL, Array<User>::class.java).body?.toList()
+
+        val users = restTemplate.getForEntity(GET_USERS_URL, Array<User>::class.java)
+            .body?.toList()
+
         return users ?: listOf()
     }
 }
