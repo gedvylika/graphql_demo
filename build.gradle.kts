@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.github.ben-manes.caffeine:caffeine")
 	implementation("org.springframework.boot:spring-boot-starter-cache")
+	implementation("junit:junit:4.13.2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
