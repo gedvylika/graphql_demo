@@ -8,8 +8,6 @@ import org.springframework.core.ParameterizedTypeReference
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
-inline fun <reified T: Any> typeRef(): ParameterizedTypeReference<T> = object: ParameterizedTypeReference<T>(){}
-
 @Service
 class DataProviderService(
     private val restTemplate: RestTemplate
